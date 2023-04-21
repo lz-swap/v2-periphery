@@ -3,6 +3,8 @@ import "dotenv/config"
 import { HardhatUserConfig } from "hardhat/config"
 import "hardhat-deploy"
 import "hardhat-deploy-ethers"
+import "@nomiclabs/hardhat-etherscan"
+import "./verify"
 
 const accounts = process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [""]
 
@@ -18,6 +20,11 @@ const config: HardhatUserConfig = {
     },
     namedAccounts: {
         deployer: process.env.DEPLOYER || ""
+    },
+    etherscan: {
+        apiKey: {
+            sepolia: process.env.ETHERSCAN_API || ""
+        }
     },
     networks: {
         sepolia: {

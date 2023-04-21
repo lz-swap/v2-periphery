@@ -11,6 +11,6 @@ const func: DeployFunction = async function ({ deployments, getNamedAccounts }) 
     })
 }
 
-func.tags = ["WETH"]
+func.tags = ["WETH9"]
 export default func
 
